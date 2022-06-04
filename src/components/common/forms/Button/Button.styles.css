@@ -1,0 +1,39 @@
+.btn {
+  @apply flex items-center cursor-pointer font-medium gap-2 transition-all;
+}
+
+.btn-primary {
+  @apply bg-pink-500 text-white border-pink-500 hover:bg-pink-700;
+}
+
+.btn-secondary {
+  @apply bg-purple-500 text-white border-purple-500 hover:bg-purple-700;
+}
+
+.btn-link {
+  @apply bg-transparent border-transparent !px-0 hover:bg-transparent hover:text-pink-700;
+}
+
+.btn-primary.btn-link {
+  @apply text-pink-500;
+}
+
+.btn-ghost {
+  @apply bg-transparent border-transparent;
+}
+
+.btn-secondary.btn-ghost {
+  @apply text-purple-500 hover:bg-purple-200;
+}
+
+.btn-small {
+  @apply h-9 px-6 text-sm rounded-lg;
+}
+
+.btn-small svg {
+  @apply text-xl;
+}
+
+.btn-medium {
+  @apply h-10 px-6 rounded-lg;
+}
