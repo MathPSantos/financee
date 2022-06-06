@@ -11,6 +11,7 @@ export function HeroGradient({ children, ...props }: HeroGradientProps) {
         background:
           "radial-gradient(98.69% 127.54% at 8.02% -15.11%, rgba(242, 55, 100, 0.12) 0.32%, rgba(253, 249, 250, 0.12) 100%)",
       }}
+      {...props}
     >
       {children}
     </div>

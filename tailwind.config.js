@@ -22,6 +22,9 @@ module.exports = {
         display: ["Sora", "ui-system", "sans-serif"],
         body: ["Inter", "ui-system", "sans-serif"],
       },
+      screen: {
+        lg: "1152px",
+      },
     },
   },
   plugins: [],

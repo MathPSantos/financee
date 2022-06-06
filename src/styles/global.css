@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply font-body;
-}
+@layer {
+  html {
+    @apply font-body text-brown-300;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-brown-500;
+  }
 }

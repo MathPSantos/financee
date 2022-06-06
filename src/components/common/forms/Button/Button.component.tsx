@@ -40,17 +40,19 @@ export function Button({
   variant = "default",
   size = "medium",
   isDisabled,
+  className,
   ...props
 }: ButtonProps) {
-  const className = classNames(
+  const compClassName = classNames(
     "btn",
     VARIANT_MAPS[variant],
     COLOR_SCHEME_MAPS[colorScheme],
-    SIZE_MAPS[size]
+    SIZE_MAPS[size],
+    className
   );
 
   return (
-    <button className={className} {...props}>
+    <button className={compClassName} {...props}>
       {children}
     </button>
   );
