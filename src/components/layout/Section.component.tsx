@@ -17,14 +17,14 @@ export function Section({
 }: SectionProps) {
   if (!isContainer) {
     return (
-      <section className={classNames("px-6 py-28", className)} {...props}>
+      <section className={classNames("px-6 py-20 my-20", className)} {...props}>
         <MaxWidth className={contentClassName}>{children}</MaxWidth>
       </section>
     );
   }
 
   return (
-    <section className={classNames("w-full py-28", className)} {...props}>
+    <section className={classNames("w-full py-20 my-20", className)} {...props}>
       {children}
     </section>
   );

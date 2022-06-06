@@ -1,4 +1,6 @@
 import {
+  CaretLeft,
+  CaretRight,
   ChartPieSlice,
   ClipboardText,
   GooglePlayLogo,
@@ -75,7 +77,7 @@ export function Home() {
       </HeroGradient>
       <main>
         <Section contentClassName="flex justify-between items-stretch gap-15">
-          <div className="max-w-md flex flex-col justify-between">
+          <div className="max-w-lg flex flex-col justify-between">
             <div>
               <Badge>📊 Controle de onde estiver</Badge>
               <Heading className="mt-9" level={2}>
@@ -102,6 +104,58 @@ export function Home() {
             {HorizontalFeatureList.map((feature, index) => (
               <HorizontalFeatureItem key={index} {...feature} />
             ))}
+          </div>
+        </Section>
+
+        <Section
+          className="pb-0 overflow-hidden"
+          isContainer
+          style={{
+            background:
+              "linear-gradient(259.37deg, #FAE9ED -15.77%, #FCFCFC 103.65%)",
+          }}
+        >
+          <MaxWidth className="flex items-end justify-between">
+            <div className="max-w-lg">
+              <Badge>📱 Soluções pensadas para você!</Badge>
+              <Heading className="mt-9" level={2}>
+                Te ajudamos a organizar e planejar sua vida financeira
+              </Heading>
+              <p className="mt-4">
+                Pensamos em um processo simples e intuitivo para te ajudar de
+                verdade no seu planejamento financeiro
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <button className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500">
+                <CaretLeft size={20} />
+              </button>
+              <button className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500">
+                <CaretRight size={20} />
+              </button>
+            </div>
+          </MaxWidth>
+
+          <div className="mt-11 border-t border-t-slate-200">
+            <MaxWidth className="flex">
+              {[1, 2, 3, 4].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col shrink-0 gap-6 items-start w-96 px-11 pt-12 pb-20 last:pr-0 first:pl-0 border-r border-r-slate-200"
+                >
+                  <div className="p-3 rounded-full bg-pink-200">
+                    <Target className="text-pink-500" size={28} />
+                  </div>
+                  <Heading level={3}>Lançamentos</Heading>
+                  <p>
+                    Registre todas as suas receitas, despesas, investimentos e
+                    transferências com informações necessárias e saiba o quanto
+                    recebe e gasta de verdade.
+                  </p>
+                </div>
+              ))}
+            </MaxWidth>
           </div>
         </Section>
       </main>
