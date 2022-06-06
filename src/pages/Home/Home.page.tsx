@@ -100,7 +100,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-11 flex-1 max-w-[550px]">
+          <div className="flex flex-col gap-11 flex-1 max-w-[550px] mt-[68px]">
             {HorizontalFeatureList.map((feature, index) => (
               <HorizontalFeatureItem key={index} {...feature} />
             ))}
