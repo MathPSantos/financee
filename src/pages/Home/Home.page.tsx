@@ -11,6 +11,7 @@ import {
 
 import { Badge, Button, Heading } from "../../components/common";
 import {
+  Footer,
   Header,
   HeroGradient,
   MaxWidth,
@@ -158,7 +159,96 @@ export function Home() {
             </MaxWidth>
           </div>
         </Section>
+
+        <Section>
+          <div className="flex flex-col items-center max-w-lg mx-auto">
+            <Badge>📊 Depoimentos dos usuários</Badge>
+            <Heading className="mt-9" level={2}>
+              O que dizem nossos usuários
+            </Heading>
+          </div>
+
+          <div className="relative mt-12">
+            <div className="grid grid-cols-3 gap-6 overflow-hidden max-h-[33rem]">
+              {[1, 2, 3].map((item) => (
+                <div className="space-y-8">
+                  {[1, 2, 3, 4, 5, 6, 7].map((testimonial) => (
+                    <div className="p-6 rounded-xl border border-slate-200 ">
+                      <div className="flex items-center gap-4">
+                        <img
+                          className="w-14 h-14 rounded-full"
+                          src="https://github.com/MathPSantos.png"
+                          alt="Matheus Santos"
+                        />
+
+                        <div>
+                          <Heading level={4}>Matheus Santos</Heading>
+                          <p className="text-sm">Desenvolvedor Frontend</p>
+                        </div>
+                      </div>
+                      <p className="mt-4">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur efficitur ipsum eget neque consectetur, eu
+                        cursus mi tincidunt.
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <div className="inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 absolute">
+              <Button>Ver mais...</Button>
+            </div>
+          </div>
+        </Section>
+
+        <Section
+          className="pb-0"
+          isContainer
+          style={{
+            background:
+              "linear-gradient(227.89deg, rgba(215, 106, 233, 0.15) 13.73%, rgba(217, 217, 217, 0) 57.82%)",
+          }}
+        >
+          <MaxWidth>
+            <Badge>💰 Recursos que fazem diferença</Badge>
+            <div className="mt-9 flex items-end justify-between">
+              <Heading className="max-w-lg leading-[40px]" level={2}>
+                Conte com diversos recursos feitos para você
+              </Heading>
+
+              <p className="max-w-lg text-right">
+                Temos diversos recursos disponíveis para você poder organizar e
+                planejar a sua vida financeira de forma simples!
+              </p>
+            </div>
+          </MaxWidth>
+
+          <div className="relative mt-12">
+            <MaxWidth>
+              <div className="space-y-9">
+                {[1, 2, 3].map((item) => (
+                  <div className="flex items-center gap-9 translate-x-32 first:translate-x-0 last:-translate-x-3">
+                    {[1, 2, 3, 4, 5].map((feature) => (
+                      <div className="py-3 px-4 rounded-lg border border-slate-2 flex items-center gap-3">
+                        <div className="flex items-center justify-center w-9 h-9 bg-pink-200 rounded-lg">
+                          <Target className="text-pink-500" size={20} />
+                        </div>
+                        <p className="font-semibold">Parcelamento</p>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </MaxWidth>
+
+            <div className="inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 absolute" />
+          </div>
+        </Section>
       </main>
+
+      <Footer />
     </>
   );
 }
