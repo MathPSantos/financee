@@ -1,11 +1,17 @@
 import { MaxWidth } from ".";
-import { Button, Heading } from "../common";
+import { Button, Heading, NavLink } from "../common";
 
-import Logo from "../../assets/logo.svg";
+import whiteLogo from "../../assets/whiteLogo.svg";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  LinkedinLogo,
+  TwitterLogo,
+} from "phosphor-react";
 
 export function Footer() {
   return (
-    <div className="relative mt-56 bg-gradient-to-tr from-[#ED7D98] to-[#D366F6]">
+    <div className="relative mt-56 bg-gradient-to-tr from-[#ED7D98] to-[#D366F6] px-6">
       <MaxWidth>
         {/* CTA */}
         <div className="flex flex-col items-center py-28 border-b border-b-pink-300">
@@ -22,14 +28,62 @@ export function Footer() {
 
         <footer className="pt-8 pb-11">
           <div className="grid grid-cols-12 border-b border-b-pink-300 pb-40">
-            <div></div>
+            <div className="col-span-3">
+              <img src={whiteLogo} alt="financee. logo" />
+              <p className="max-w-sm text-white mt-4">
+                Uma plataforma para quem quer controlar suas finanças.
+              </p>
+            </div>
+
+            <div className="col-start-7 col-span-2">
+              <Heading className="!text-white" level={5}>
+                Páginas
+              </Heading>
+              <ul className="flex flex-col items-start mt-3 gap-1">
+                <NavLink className="text-white" to="/">
+                  Preços e planos
+                </NavLink>
+                <NavLink className="text-white" to="/">
+                  Simuladores
+                </NavLink>
+              </ul>
+            </div>
+
+            <div className="col-span-2">
+              <Heading className="!text-white" level={5}>
+                Privacidade & Termos
+              </Heading>
+              <ul className="flex flex-col items-start mt-3 gap-1">
+                <NavLink className="text-white" to="/">
+                  Termos de uso
+                </NavLink>
+                <NavLink className="text-white" to="/">
+                  Políticas de privacidade
+                </NavLink>
+                <NavLink className="text-white" to="/">
+                  Política de reembolso
+                </NavLink>
+              </ul>
+            </div>
+
+            <div className="col-span-2">
+              <Heading className="!text-white" level={5}>
+                Redes sociais
+              </Heading>
+              <div className="flex items-center mt-3 gap-3 text-white">
+                <FacebookLogo weight="duotone" size={24} />
+                <TwitterLogo weight="duotone" size={24} />
+                <InstagramLogo weight="duotone" size={24} />
+                <LinkedinLogo weight="duotone" size={24} />
+              </div>
+            </div>
           </div>
           <div className="flex items-center justify-between mt-5">
             <p className="text-white text-sm">
               © 2022 financee. Todos os direitos reservados.
             </p>
 
-            <img src={Logo} alt="financee" />
+            <img className="opacity-60" src={whiteLogo} alt="financee" />
           </div>
         </footer>
       </MaxWidth>
