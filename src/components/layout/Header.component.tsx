@@ -4,6 +4,13 @@ import { Button, NavLink } from "../common";
 
 import Logo from "../../assets/logo.svg";
 
+const NavItems = [
+  {
+    to: "/plans",
+    label: "planos e preços",
+  },
+];
+
 export function Header() {
   return (
     <header className="px-6 py-5">
@@ -18,9 +25,9 @@ export function Header() {
           {/* Nav */}
           <nav>
             <ul className="list-none flex items-center gap-5">
-              {["preços e planos", "simuladores"].map((i) => (
-                <NavLink key={i} to={`/${i}`}>
-                  {i}
+              {NavItems.map((i) => (
+                <NavLink key={i.to} to={i.to}>
+                  {i.label}
                 </NavLink>
               ))}
             </ul>

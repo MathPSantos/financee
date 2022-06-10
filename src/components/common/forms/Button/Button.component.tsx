@@ -16,6 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants;
   size?: ButtonSizes;
   isDisabled?: boolean;
+  isFullWidth?: boolean;
 }
 
 const COLOR_SCHEME_MAPS = {
@@ -40,6 +41,7 @@ export function Button({
   variant = "default",
   size = "medium",
   isDisabled,
+  isFullWidth,
   className,
   ...props
 }: ButtonProps) {
@@ -48,6 +50,7 @@ export function Button({
     VARIANT_MAPS[variant],
     COLOR_SCHEME_MAPS[colorScheme],
     SIZE_MAPS[size],
+    isFullWidth && "w-full",
     className
   );
 
