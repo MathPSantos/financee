@@ -55,10 +55,10 @@ export function SolutionsSection() {
       }}
     >
       <div className="px-6">
-        <MaxWidth className="flex items-end justify-between ">
-          <div className="max-w-lg">
+        <MaxWidth className="flex flex-col md:flex-row gap-5 items-end justify-between">
+          <div className="md:max-w-lg">
             <Badge>📱 Soluções pensadas para você!</Badge>
-            <Heading className="mt-9" level={2}>
+            <Heading className="mt-6 md:mt-9" level={2}>
               Te ajudamos a organizar e planejar sua vida financeira
             </Heading>
             <p className="mt-4">
@@ -87,7 +87,7 @@ export function SolutionsSection() {
             {SolutionsList.map(({ title, content, Icon }) => (
               <div
                 key={title}
-                className="flex flex-col shrink-0 gap-6 items-start w-96 px-11 pt-12 pb-20 last:pr-0 first:pl-0 border-r border-r-slate-200"
+                className="flex flex-col shrink-0 gap-6 items-start max-w-sm px-11 pt-12 pb-20 last:pr-0 first:pl-0 border-r border-r-slate-200"
               >
                 <div className="p-3 rounded-full bg-pink-200">
                   <Icon className="text-pink-500" size={28} />

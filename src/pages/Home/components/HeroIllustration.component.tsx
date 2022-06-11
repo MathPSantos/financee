@@ -1,8 +1,18 @@
 import { CaretLeft, CaretRight, DotsNine, LockSimple } from "phosphor-react";
+import { HTMLAttributes } from "react";
+import { classNames } from "../../../core/utils/classnames";
 
-export function HeroIllustration() {
+export function HeroIllustration({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
+  const compClassName = classNames(
+    "hidden md:block w-full h-[552px] lg:rounded-[28px] bg-gradient-to-tr from-[#ED7D98] to-[#D366F6] mt-14 p-12",
+    className
+  );
+
   return (
-    <div className="w-full h-[552px] lg:rounded-[28px] bg-gradient-to-tr from-[#ED7D98] to-[#D366F6] mt-14 p-12 pb-0">
+    <div className={compClassName} {...props}>
       <div className="w-full h-full bg-white rounded-t-xl border border-b-0 border-slate-200">
         <div
           className="py-2.5 grid items-center px-4 gap-8 border-b border-slate-200"

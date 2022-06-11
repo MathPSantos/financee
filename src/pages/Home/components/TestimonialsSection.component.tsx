@@ -6,13 +6,13 @@ export function TestimonialsSection() {
     <Section>
       <div className="flex flex-col items-center max-w-lg mx-auto">
         <Badge>📊 Depoimentos dos usuários</Badge>
-        <Heading className="mt-9" level={2}>
+        <Heading className="mt-6 md:mt-9" level={2}>
           O que dizem nossos usuários
         </Heading>
       </div>
 
       <div className="relative mt-12">
-        <div className="grid grid-cols-3 gap-6 overflow-hidden max-h-[33rem]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-hidden max-h-[33rem]">
           {[1, 2, 3].map((item) => (
             <div className="space-y-8">
               {[1, 2, 3, 4, 5, 6, 7].map((testimonial) => (

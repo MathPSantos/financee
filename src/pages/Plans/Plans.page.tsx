@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { Heading, Badge } from "../../components/common";
 import {
   Footer,
@@ -8,10 +9,55 @@ import {
   Section,
 } from "../../components/layout";
 import { PlanButton } from "./components/PlanButton.component";
-
-import planLine from "../../assets/planLine.svg";
 import { PlansShelf } from "./components/PlansShelf.component";
 import { TestimonialsSection } from "../Home/components/TestimonialsSection.component";
+
+import { Plan } from "./types/Plan.types";
+
+import planLine from "../../assets/planLine.svg";
+
+const PLANS: Plan[] = [
+  {
+    name: "Básico",
+    description:
+      "Gratuito para sempre, feito para quem quer ter um gerenciamento mais simples",
+    price: 0,
+    features: [
+      "Lançamentos ilimitados",
+      "Até 3 contas",
+      "Até 1 cartão",
+      "Sicronização entre dispositvos",
+    ],
+    buttonLabel: "Cadastre-se agora",
+  },
+  {
+    name: "Essencial",
+    description:
+      "Para usuários que precisam de mais controle de suas vidas financeiras",
+    price: 9.9,
+    features: [
+      "Lançamentos ilimitados",
+      "Contas ilimitadas",
+      "Cartões ilimitados",
+      "Relatórios customizáveis",
+    ],
+    buttonLabel: "Experimente agora",
+  },
+  {
+    name: "Família",
+    description:
+      "Voltados para famílias que querem ter o controle de multíplos usuários.",
+    price: 12.9,
+    features: [
+      "Tudo do plano essencial",
+      "Relatórios individuais e gerais",
+      "Cada usuário tem seu próprio acesso",
+      "Sicronização entre múltiplas contas",
+    ],
+    buttonLabel: "Disponível em breve",
+    isCommingSoon: true,
+  },
+];
 
 export function Plans() {
   const [isAnualPlanSelected, setIsAnualPlanSelected] = useState(true);
@@ -55,7 +101,7 @@ export function Plans() {
                   Anual
                 </PlanButton>
 
-                <div className="absolute top-4 left-[calc(100%+1rem)] flex gap-2 w-max">
+                <div className="hidden md:flex absolute top-4 left-[calc(100%+1rem)] gap-2 w-max">
                   <img src={planLine} />
                   <p className="text-pink-500 font-semibold text-sm">
                     Economize 15%
@@ -63,7 +109,7 @@ export function Plans() {
                 </div>
               </div>
 
-              <PlansShelf className="mt-16" />
+              <PlansShelf plans={PLANS} className="mt-16" />
             </div>
           </MaxWidth>
         </section>

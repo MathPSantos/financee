@@ -5,8 +5,10 @@ import {
   Star,
   Target,
 } from "phosphor-react";
+import { HTMLAttributes } from "react";
 import { Badge, Button, Heading } from "../../../components/common";
 import { Section } from "../../../components/layout";
+import { classNames } from "../../../core/utils/classnames";
 import { HorizontalFeatureItem } from "./HorizontalFeatureItem.component";
 
 const HorizontalFeatureList = [
@@ -36,10 +38,39 @@ const HorizontalFeatureList = [
   },
 ];
 
+interface MiniCtaProps extends HTMLAttributes<HTMLDivElement> {
+  isButtonFullWidth?: boolean;
+}
+
+function MiniCta({
+  isButtonFullWidth = false,
+  className,
+  ...props
+}: MiniCtaProps) {
+  const compClassName = classNames(
+    "flex flex-col items-center md:items-start",
+    className
+  );
+
+  return (
+    <div className={compClassName} {...props}>
+      <div className="w-min mt-auto p-3 rounded-xl border border-slate-200">
+        <Money className="text-pink-500" size={32} weight="duotone" />
+      </div>
+      <p className="text-center md:text-left mt-5 max-w-[170px] font-semibold">
+        Vamos gerenciar sua vida financeira?
+      </p>
+      <Button className="mt-4" isFullWidth={isButtonFullWidth}>
+        Cadastre-se
+      </Button>
+    </div>
+  );
+}
+
 export function StepsSection() {
   return (
-    <Section contentClassName="flex justify-between items-stretch gap-15">
-      <div className="max-w-lg flex flex-col justify-between">
+    <Section contentClassName="flex flex-col md:flex-row justify-between items-stretch md:gap-15">
+      <div className="md:max-w-lg md:flex-1 flex flex-col justify-between">
         <div>
           <Badge>📊 Controle de onde estiver</Badge>
           <Heading className="mt-9" level={2}>
@@ -51,22 +82,16 @@ export function StepsSection() {
           </p>
         </div>
 
-        <div>
-          <div className="w-min mt-auto p-3 rounded-xl border border-slate-200">
-            <Money className="text-pink-500" size={32} weight="duotone" />
-          </div>
-          <p className="mt-5 max-w-[170px] font-semibold">
-            Vamos gerenciar sua vida financeira?
-          </p>
-          <Button className="mt-4">Cadastre-se</Button>
-        </div>
+        <MiniCta className="hidden md:block" />
       </div>
 
-      <div className="flex flex-col gap-11 flex-1 max-w-[550px] mt-[68px]">
+      <div className="flex flex-col gap-11 flex-1 md:max-w-[550px] mt-[68px]">
         {HorizontalFeatureList.map((feature, index) => (
           <HorizontalFeatureItem key={index} {...feature} />
         ))}
       </div>
+
+      <MiniCta className="mt-8 md:hidden" isButtonFullWidth />
     </Section>
   );
 }

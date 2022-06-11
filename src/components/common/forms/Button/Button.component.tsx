@@ -43,6 +43,7 @@ export function Button({
   isDisabled,
   isFullWidth,
   className,
+  disabled,
   ...props
 }: ButtonProps) {
   const compClassName = classNames(
@@ -55,7 +56,11 @@ export function Button({
   );
 
   return (
-    <button className={compClassName} {...props}>
+    <button
+      className={compClassName}
+      disabled={isDisabled || disabled}
+      {...props}
+    >
       {children}
     </button>
   );

@@ -1,5 +1,5 @@
 .btn {
-  @apply flex items-center justify-center cursor-pointer font-medium gap-2 transition-all;
+  @apply flex items-center justify-center cursor-pointer font-medium gap-2 transition-all disabled:pointer-events-none disabled:opacity-60;
 }
 
 .btn-primary {

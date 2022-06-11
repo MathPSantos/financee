@@ -27,15 +27,15 @@ export function Footer() {
         </div>
 
         <footer className="pt-8 pb-11">
-          <div className="grid grid-cols-12 border-b border-b-pink-300 pb-40">
-            <div className="col-span-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-12 border-b border-b-pink-300 pb-40">
+            <div className="md:col-span-3">
               <img src={whiteLogo} alt="financee. logo" />
-              <p className="max-w-sm text-white mt-4">
+              <p className="md:max-w-sm text-white mt-4">
                 Uma plataforma para quem quer controlar suas finanças.
               </p>
             </div>
 
-            <div className="col-start-7 col-span-2">
+            <div className="md:col-start-7 md:col-span-2">
               <Heading className="!text-white" level={5}>
                 Páginas
               </Heading>
@@ -49,7 +49,7 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <Heading className="!text-white" level={5}>
                 Privacidade & Termos
               </Heading>
@@ -66,7 +66,7 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <Heading className="!text-white" level={5}>
                 Redes sociais
               </Heading>
@@ -78,7 +78,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-5">
+          <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between mt-5">
             <p className="text-white text-sm">
               © 2022 financee. Todos os direitos reservados.
             </p>
