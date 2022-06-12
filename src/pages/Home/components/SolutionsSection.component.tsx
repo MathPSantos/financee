@@ -1,5 +1,5 @@
 import { CaretLeft, CaretRight, Icon, Target } from "phosphor-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Badge, Heading } from "../../../components/common";
 import { MaxWidth, Section } from "../../../components/layout";
 
@@ -37,12 +37,36 @@ const SolutionsList: Solution[] = [
 ];
 
 export function SolutionsSection() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const maxSlideIndex = SolutionsList.length - 1;
+
   const carrouselContainerRef = useRef<HTMLDivElement>(null);
 
-  function handleNextButton() {
+  useEffect(() => {
     if (carrouselContainerRef.current) {
-      console.log(carrouselContainerRef.current.children[0].clientWidth);
+      const childWidth = carrouselContainerRef.current.children[0].clientWidth;
+
+      carrouselContainerRef.current.style.transform = `translateX(-${
+        childWidth * slideIndex
+      }px)`;
     }
+  }, [slideIndex]);
+
+  function handleNextButton() {
+    if (slideIndex === maxSlideIndex) {
+      return;
+    }
+
+    setSlideIndex(slideIndex + 1);
+  }
+
+  function handlePreviousButton() {
+    if (slideIndex === 0) {
+      return;
+    }
+
+    setSlideIndex(slideIndex - 1);
   }
 
   return (
@@ -68,11 +92,16 @@ export function SolutionsSection() {
           </div>
 
           <div className="flex gap-3">
-            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500">
+            <button
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500 disabled:opacity-60"
+              disabled={slideIndex === 0}
+              onClick={handlePreviousButton}
+            >
               <CaretLeft size={20} />
             </button>
             <button
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500 disabled:opacity-60"
+              disabled={slideIndex === maxSlideIndex}
               onClick={handleNextButton}
             >
               <CaretRight size={20} />
@@ -83,11 +112,11 @@ export function SolutionsSection() {
 
       <div className="mt-11 border-t border-t-slate-200 px-6">
         <MaxWidth>
-          <div className="flex" ref={carrouselContainerRef}>
+          <div className="flex transition-all" ref={carrouselContainerRef}>
             {SolutionsList.map(({ title, content, Icon }) => (
               <div
                 key={title}
-                className="flex flex-col shrink-0 gap-6 items-start max-w-sm px-11 pt-12 pb-20 last:pr-0 first:pl-0 border-r border-r-slate-200"
+                className="w-full flex flex-col shrink-0 gap-6 items-start max-w-sm px-11 pt-12 pb-20 last:pr-0 last:border-r-0 first:pl-0 border-r border-r-slate-200"
               >
                 <div className="p-3 rounded-full bg-pink-200">
                   <Icon className="text-pink-500" size={28} />
