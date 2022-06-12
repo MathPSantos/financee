@@ -74,7 +74,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Button size="small">Cadastre-se</Button>
             <Button variant="link" size="small">
-              <UserCircle size={32} weight="duotone" />
+              <UserCircle size={24} weight="duotone" />
               Entrar
             </Button>
           </div>
