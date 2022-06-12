@@ -50,7 +50,7 @@ export function Header() {
   return (
     <header className="relative px-6 py-5">
       {/* Content */}
-      <div className="mx-auto w-full max-w-6xl flex items-center justify-between h-9">
+      <div className="mx-auto w-full max-w-6xl flex items-center justify-between h-9 overflow-x-hidden">
         <NavLink to="/">
           <img src={Logo} alt="Logo financee" />
         </NavLink>
