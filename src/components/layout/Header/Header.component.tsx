@@ -16,8 +16,10 @@ import { classNames } from "../../../core/utils/classnames";
 
 import Logo from "../../../assets/logo.svg";
 
+import { lockBodyScroll, unlockBodyScroll } from "../../../core/utils/lockBody";
+import { scrollToTop } from "../../../core/utils/scrollToTop";
+
 import "./Header.styles.css";
-import { useLockBodyScrool } from "../../../core/hooks";
 
 const NavItems = [
   {
@@ -29,7 +31,12 @@ const NavItems = [
 export function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  useLockBodyScrool(isNavOpen);
+  function handleOpenNav() {
+    scrollToTop();
+    lockBodyScroll();
+  }
+
+  isNavOpen ? handleOpenNav() : unlockBodyScroll();
 
   const mobileNavClassName = classNames(
     "translate-x-full z-10 bg-white absolute inset-0 h-screen md:hidden transition-all duration-200",
