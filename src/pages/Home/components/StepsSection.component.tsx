@@ -67,9 +67,9 @@ function MiniCta({
   );
 }
 
-export function StepsSection() {
+export function StepsSection({...props}: HTMLAttributes<HTMLDivElement>) {
   return (
-    <Section contentClassName="flex flex-col md:flex-row justify-between items-stretch md:gap-15">
+    <Section contentClassName="flex flex-col md:flex-row justify-between items-stretch md:gap-15" {...props}>
       <div className="md:max-w-lg md:flex-1 flex flex-col justify-between">
         <div>
           <Badge>📊 Controle de onde estiver</Badge>
