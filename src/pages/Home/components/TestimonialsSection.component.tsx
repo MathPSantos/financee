@@ -32,13 +32,15 @@ export function TestimonialsSection() {
   }, []);
 
   function handleShowTestimonialsFooterOnScroll() {
-    if (isTestimonialsCollapsed || !testimonialRef.current) {
+    if (!testimonialRef.current) {
       return;
     }
 
-    const heightToShowFooter = 450;
+    const heightToShowFooter = 300;
     const testimonialTopOffset =
       testimonialRef.current.getBoundingClientRect().top * -1;
+
+    console.log(testimonialTopOffset);
 
     if (testimonialTopOffset > heightToShowFooter) {
       setIsShowingFooter(true);
