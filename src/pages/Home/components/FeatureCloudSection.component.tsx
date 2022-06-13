@@ -1,8 +1,90 @@
-import { Target } from "phosphor-react";
+import { ArrowDownLeft, ArrowUpRight, Bank, Calculator, Cards, ChartLine, ChartPieSlice, Clipboard, Compass, Gauge, Icon, Table, Tabs, Tag, Target, TrendUp, Wallet } from "phosphor-react";
 import { Badge, Heading } from "../../../components/common";
 import { MaxWidth, Section } from "../../../components/layout";
 
+interface IFeature {
+  Icon: Icon,
+  label: string
+}
+
+
+const FEATURES: IFeature[] = [
+  {
+    Icon: Bank,
+    label: "Contas"
+  },
+  {
+    Icon: Calculator,
+    label: "Simuladores"
+  },
+  {
+    Icon: ArrowUpRight,
+    label: "Receitas"
+  },
+  {
+    Icon: Cards,
+    label: "Cartões de crédito"
+  },
+  {
+    Icon: ArrowDownLeft,
+    label: "Despesas"
+  },
+  {
+    Icon: Tabs,
+    label: "Parcelamento"
+  },
+  {
+    Icon: Clipboard,
+    label: "Extrato"
+  },
+  {
+    Icon: Wallet,
+    label: "Economias"
+  },
+  {
+    Icon: Compass,
+    label: "Planejamentos"
+  },
+  {
+    Icon: Tag,
+    label: "Categorias"
+  },
+  {
+    Icon: Table,
+    label: "Investimentos"
+  },
+  {
+    Icon: ChartLine,
+    label: "Rendimentos"
+  },
+  {
+    Icon: TrendUp,
+    label: "Dividendos"
+  },
+  {
+    Icon: Gauge,
+    label: "Indicadores"
+  },
+  {
+    Icon: ChartPieSlice,
+    label: "Gráficos"
+  },
+
+]
+
 export function FeatureCloudSection() {
+  function splitArrayIntoChunksOfLen<T>(arr: T[], len: number) {
+    var chunks = [], i = 0, n = arr.length;
+
+    while (i < n) {
+      chunks.push(arr.slice(i, i += len));
+    }
+
+    return chunks;
+  }
+
+  const featuresList = splitArrayIntoChunksOfLen(FEATURES, 5);
+  
   return (
     <Section
       className="pb-0"
@@ -28,14 +110,15 @@ export function FeatureCloudSection() {
 
       <div className="relative mt-12 overflow-hidden">
         <div className="flex flex-col items-center gap-7">
-          {[1, 2, 3].map((item) => (
-            <div className="flex items-center gap-9 first:translate-x-12 last:translate-x-12">
-              {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((feature) => (
-                <div className="py-3 px-4 rounded-lg border border-slate-2 flex items-center gap-3">
+          {featuresList.map((line) => (
+            <div className="flex items-center gap-9 first:-translate-x-8 last:-translate-x-8">
+              {line.map(({Icon, label}) => (
+                <div className="py-3 px-4 shrink-0 rounded-lg border border-slate-2 flex items-center gap-3">
                   <div className="flex items-center justify-center w-9 h-9 bg-pink-200 rounded-lg">
-                    <Target className="text-pink-500" size={20} />
+                    <Icon className="text-pink-500" size={20} />
                   </div>
-                  <p className="font-semibold">Parcelamento</p>
+
+                  <p className="font-semibold">{label}</p>
                 </div>
               ))}
             </div>

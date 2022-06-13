@@ -2,21 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer {
-  html {
-    @apply font-body text-brown-300;
-  }
+html {
+  @apply font-body text-brown-300;
+}
 
-  body {
-    @apply scroll-smooth overflow-x-hidden;
-  }
+body {
+  @apply scroll-smooth overflow-x-hidden;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display text-brown-500;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display text-brown-500;
 }
