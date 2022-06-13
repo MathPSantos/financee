@@ -4,11 +4,19 @@ import { Plan } from "../types/Plan.types";
 
 interface PlanItemProps {
   data: Plan;
+  isAnualPlanSelected: boolean;
 }
 
-export function PlanItem({ data }: PlanItemProps) {
-  const { name, description, price, features, buttonLabel, isCommingSoon } =
-    data;
+export function PlanItem({ data, isAnualPlanSelected }: PlanItemProps) {
+  const {
+    name,
+    description,
+    pricePerMonth,
+    pricePerYear,
+    features,
+    buttonLabel,
+    isCommingSoon,
+  } = data;
 
   function formatPrice(price: number) {
     return price.toFixed(2).replace(".", ",");
@@ -21,7 +29,7 @@ export function PlanItem({ data }: PlanItemProps) {
       <div className="flex items-baseline gap-1 mt-6">
         <span className="text-brown-500 font-semibold">R$</span>
         <strong className="font-display text-5xl font-bold leading-none text-brown-500">
-          {formatPrice(price)}
+          {formatPrice(isAnualPlanSelected ? pricePerYear : pricePerMonth)}
         </strong>
         <span className="font-semibold">/mês</span>
       </div>

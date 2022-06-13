@@ -5,9 +5,15 @@ import { PlanItem } from "./PlanItem.component";
 
 interface PlansShelfProps extends HTMLAttributes<HTMLDivElement> {
   plans: Plan[];
+  isAnualPlanSelected: boolean;
 }
 
-export function PlansShelf({ plans, className, ...props }: PlansShelfProps) {
+export function PlansShelf({
+  plans,
+  isAnualPlanSelected,
+  className,
+  ...props
+}: PlansShelfProps) {
   const compClassName = classNames(
     "flex flex-col justify-center items-start gap-5 w-full md:flex-row",
     className
@@ -16,7 +22,11 @@ export function PlansShelf({ plans, className, ...props }: PlansShelfProps) {
   return (
     <div className={compClassName} {...props}>
       {plans.map((plan) => (
-        <PlanItem key={plan.name} data={plan} />
+        <PlanItem
+          isAnualPlanSelected={isAnualPlanSelected}
+          key={plan.name}
+          data={plan}
+        />
       ))}
     </div>
   );

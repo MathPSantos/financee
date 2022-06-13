@@ -21,8 +21,9 @@ const PLANS: Plan[] = [
   {
     name: "Básico",
     description:
-      "Gratuito para sempre, feito para quem quer ter um gerenciamento mais simples",
-    price: 0,
+      "Gratuito para sempre, feito para ter um gerenciamento mais simples",
+    pricePerMonth: 0,
+    pricePerYear: 0,
     features: [
       "Lançamentos ilimitados",
       "Até 3 contas",
@@ -35,7 +36,8 @@ const PLANS: Plan[] = [
     name: "Essencial",
     description:
       "Para usuários que precisam de mais controle de suas vidas financeiras",
-    price: 9.9,
+    pricePerMonth: 9.9,
+    pricePerYear: 99.9,
     features: [
       "Lançamentos ilimitados",
       "Contas ilimitadas",
@@ -48,12 +50,13 @@ const PLANS: Plan[] = [
     name: "Família",
     description:
       "Voltados para famílias que querem ter o controle de multíplos usuários.",
-    price: 12.9,
+    pricePerMonth: 12.9,
+    pricePerYear: 129.9,
     features: [
       "Tudo do plano essencial",
       "Relatórios individuais e gerais",
-      "Cada usuário tem seu próprio acesso",
-      "Sicronização entre múltiplas contas",
+      "Acessos únicos",
+      "Sicronização entre contas",
     ],
     buttonLabel: "Disponível em breve",
     isCommingSoon: true,
@@ -110,7 +113,11 @@ export function Plans() {
                 </div>
               </div>
 
-              <PlansShelf plans={PLANS} className="mt-16" />
+              <PlansShelf
+                isAnualPlanSelected={isAnualPlanSelected}
+                plans={PLANS}
+                className="mt-16"
+              />
             </div>
           </MaxWidth>
         </section>
