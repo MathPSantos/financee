@@ -1,7 +1,60 @@
+import { useEffect, useRef, useState } from "react";
 import { Badge, Button, Heading } from "../../../components/common";
 import { Section } from "../../../components/layout";
+import { classNames } from "../../../core/utils/classnames";
 
 export function TestimonialsSection() {
+  const [isTestimonialsCollapsed, setIsTestimonialsCollapsed] = useState(true);
+  const [isShowingFooter, setIsShowingFooter] = useState(false);
+
+  const testimonialsContainerClassName = classNames(
+    "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-hidden",
+    isTestimonialsCollapsed && "max-h-[33rem]"
+  );
+
+  const footerClassName = classNames(
+    "absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pb-8 pt-32 transition-opacity duration-300",
+    !isTestimonialsCollapsed && "sticky -mt-48",
+    !isTestimonialsCollapsed && !isShowingFooter && "opacity-0"
+  );
+
+  const testimonialRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleShowTestimonialsFooterOnScroll);
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        handleShowTestimonialsFooterOnScroll
+      );
+    };
+  }, []);
+
+  function handleShowTestimonialsFooterOnScroll() {
+    if (isTestimonialsCollapsed || !testimonialRef.current) {
+      return;
+    }
+
+    const heightToShowFooter = 450;
+    const testimonialTopOffset =
+      testimonialRef.current.getBoundingClientRect().top * -1;
+
+    if (testimonialTopOffset > heightToShowFooter) {
+      setIsShowingFooter(true);
+    } else {
+      setIsShowingFooter(false);
+    }
+  }
+
+  function handleToggleIsTestimonialsCollapsed() {
+    if (!isTestimonialsCollapsed && testimonialRef.current) {
+      testimonialRef.current.scrollIntoView();
+    }
+
+    setIsTestimonialsCollapsed((prev) => !prev);
+  }
+
   return (
     <Section>
       <div className="flex flex-col items-center max-w-lg mx-auto">
@@ -12,7 +65,7 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative mt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-hidden max-h-[33rem]">
+        <div ref={testimonialRef} className={testimonialsContainerClassName}>
           {[1, 2, 3].map((item) => (
             <div className="space-y-8">
               {[1, 2, 3, 4, 5, 6, 7].map((testimonial) => (
@@ -40,9 +93,11 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 absolute">
-          <Button>Ver mais...</Button>
-        </div>
+        <footer className={footerClassName}>
+          <Button onClick={handleToggleIsTestimonialsCollapsed}>
+            {isTestimonialsCollapsed ? "Ver mais..." : "Ok, já entendi!"}
+          </Button>
+        </footer>
       </div>
     </Section>
   );

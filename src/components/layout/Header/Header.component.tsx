@@ -39,7 +39,7 @@ export function Header() {
   isNavOpen ? handleOpenNav() : unlockBodyScroll();
 
   const mobileNavClassName = classNames(
-    "translate-x-full z-10 bg-white absolute inset-0 h-screen md:hidden transition-all duration-200",
+    "translate-x-full z-10 bg-white fixed inset-0 h-screen md:hidden transition-all duration-200",
     isNavOpen && "nav-active"
   );
 
@@ -48,7 +48,7 @@ export function Header() {
   }
 
   return (
-    <header className="px-6 py-5">
+    <header className="px-6 py-5 overflow-x-hidden">
       {/* Content */}
       <div className="mx-auto w-full max-w-6xl flex items-center justify-between h-9">
         <NavLink to="/">
