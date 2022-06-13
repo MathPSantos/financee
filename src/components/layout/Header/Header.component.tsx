@@ -122,7 +122,7 @@ export function Header() {
             <hr className="w-52 bg-slate-200" />
             <div className="flex flex-col items-center gap-4">
               <Heading
-                level={5}
+                level={6}
                 className="font-normal text-center !text-slate-500"
               >
                 Nos siga nas redes sociais

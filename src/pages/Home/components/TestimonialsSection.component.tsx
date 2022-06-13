@@ -78,7 +78,7 @@ export function TestimonialsSection() {
                     />
 
                     <div>
-                      <Heading level={4}>Matheus Santos</Heading>
+                      <Heading level={5}>Matheus Santos</Heading>
                       <p className="text-sm">Desenvolvedor Frontend</p>
                     </div>
                   </div>

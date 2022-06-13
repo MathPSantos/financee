@@ -17,7 +17,7 @@ import { TestimonialsSection } from "./components/TestimonialsSection.component"
 export function Home() {
   return (
     <>
-      <HeroGradient className="md:pb-28">
+      <HeroGradient className="pb-12 md:pb-28">
         <Header />
         <section>
           <MaxWidth>
@@ -42,6 +42,7 @@ export function Home() {
           </MaxWidth>
         </section>
       </HeroGradient>
+
       <main>
         <StepsSection />
 

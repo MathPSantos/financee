@@ -15,6 +15,7 @@ import { TestimonialsSection } from "../Home/components/TestimonialsSection.comp
 import { Plan } from "./types/Plan.types";
 
 import planLine from "../../assets/planLine.svg";
+import { FaqSection } from "./components/FaqSection.component";
 
 const PLANS: Plan[] = [
   {
@@ -123,6 +124,10 @@ export function Plans() {
             <Heading className="mt-9" level={2}>
               Perguntas frequentes
             </Heading>
+          </div>
+
+          <div className="max-w-3xl mx-auto mt-12">
+            <FaqSection />
           </div>
         </Section>
       </main>

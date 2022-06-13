@@ -4,13 +4,13 @@ import { BaseHeadingProps } from "./Heading.types";
 
 export function H4({ children, className, ...props }: BaseHeadingProps) {
   const compClassName = classNames(
-    "font-bold text-brown-500 leading-[normal]",
+    "font-semibold text-brown-500 text-xl leading-[32px]",
     className
   );
 
   return (
-    <h4 className={compClassName} {...props}>
+    <h5 className={compClassName} {...props}>
       {children}
-    </h4>
+    </h5>
   );
 }

@@ -36,7 +36,7 @@ export function Footer() {
             </div>
 
             <div className="md:col-start-7 md:col-span-2">
-              <Heading className="!text-white" level={5}>
+              <Heading className="!text-white" level={6}>
                 Páginas
               </Heading>
               <ul className="flex flex-col items-start mt-3 gap-1">
@@ -50,7 +50,7 @@ export function Footer() {
             </div>
 
             <div className="md:col-span-2">
-              <Heading className="!text-white" level={5}>
+              <Heading className="!text-white" level={6}>
                 Privacidade & Termos
               </Heading>
               <ul className="flex flex-col items-start mt-3 gap-1">
@@ -67,7 +67,7 @@ export function Footer() {
             </div>
 
             <div className="md:col-span-2">
-              <Heading className="!text-white" level={5}>
+              <Heading className="!text-white" level={6}>
                 Redes sociais
               </Heading>
               <div className="flex items-center mt-3 gap-3 text-white">
