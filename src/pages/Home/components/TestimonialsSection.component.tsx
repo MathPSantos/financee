@@ -40,8 +40,6 @@ export function TestimonialsSection() {
     const testimonialTopOffset =
       testimonialRef.current.getBoundingClientRect().top * -1;
 
-    console.log(testimonialTopOffset);
-
     if (testimonialTopOffset > heightToShowFooter) {
       setIsShowingFooter(true);
     } else {
