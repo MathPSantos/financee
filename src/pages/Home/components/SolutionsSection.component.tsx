@@ -1,4 +1,12 @@
-import { CaretLeft, CaretRight, Icon, Target } from "phosphor-react";
+import {
+  ArrowsLeftRight,
+  Bank,
+  Cards,
+  CaretLeft,
+  CaretRight,
+  Compass,
+  Icon,
+} from "phosphor-react";
 import { useEffect, useRef, useState } from "react";
 import { Badge, Heading } from "../../../components/common";
 import { MaxWidth, Section } from "../../../components/layout";
@@ -11,25 +19,25 @@ type Solution = {
 
 const SolutionsList: Solution[] = [
   {
-    Icon: Target,
+    Icon: ArrowsLeftRight,
     title: "Lançamentos",
     content:
       "Registre todas as suas receitas, despesas, investimentos e transferências com informações necessárias e saiba o quanto recebe e gasta de verdade.",
   },
   {
-    Icon: Target,
+    Icon: Bank,
     title: "Contas",
     content:
       "Nós sabemos que a maioria de nós tem mais de uma conta, dessa forma tenha o controle e o resumo de todas as suas contas em um só lugar.",
   },
   {
-    Icon: Target,
+    Icon: Cards,
     title: "Cartões de crédito",
     content:
       "Nosso objetivo é fazer com que você não esqueça de nenhuma parcela do seu cartão, além de saber o quanto do limite foi utilizado.",
   },
   {
-    Icon: Target,
+    Icon: Compass,
     title: "Planejamento",
     content:
       "Por aqui você vai poder colocar planos de gastos máximos por categoria e ter uma lista de desejos e saber o quanto falta juntar para cada objetivo.",
