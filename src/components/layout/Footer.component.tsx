@@ -3,6 +3,7 @@ import { Button, Heading, NavLink } from "../common";
 
 import whiteLogo from "../../assets/whiteLogo.svg";
 import {
+  CaretDoubleUp,
   FacebookLogo,
   InstagramLogo,
   LinkedinLogo,
@@ -10,9 +11,21 @@ import {
 } from "phosphor-react";
 
 export function Footer() {
+  function handleScrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <div className="relative mt-56 bg-gradient-to-tr from-[#ED7D98] to-[#D366F6] px-6">
-      <MaxWidth>
+    <div className="mt-56 bg-gradient-to-tr from-[#ED7D98] to-[#D366F6] px-6">
+      <MaxWidth className="relative">
+        {/* Scroll top Button */}
+        <button
+          className="absolute top-0 right-0 flex items-center justify-center bg-white rounded-full w-16 h-16 -mt-8"
+          onClick={handleScrollToTop}
+        >
+          <CaretDoubleUp size={28} />
+        </button>
+
         {/* CTA */}
         <div className="flex flex-col items-center py-28 border-b border-b-pink-300">
           <Heading level={2} className="text-white text-center">
