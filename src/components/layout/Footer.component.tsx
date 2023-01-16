@@ -1,7 +1,7 @@
 import { MaxWidth } from ".";
 import { Button, Heading, NavLink } from "../common";
 
-import whiteLogo from "../../assets/whiteLogo.svg";
+import whiteLogo from "/whiteLogo.svg";
 import {
   CaretDoubleUp,
   FacebookLogo,
@@ -22,6 +22,7 @@ export function Footer() {
         <button
           className="absolute top-0 right-0 flex items-center justify-center bg-white rounded-full w-16 h-16 -mt-8"
           onClick={handleScrollToTop}
+          aria-label="Ir para o topo da página"
         >
           <CaretDoubleUp size={28} />
         </button>
@@ -53,12 +54,16 @@ export function Footer() {
                 Páginas
               </Heading>
               <ul className="flex flex-col items-start mt-3 gap-1">
-                <NavLink className="text-white" to="/">
-                  Preços e planos
-                </NavLink>
-                <NavLink className="text-white" to="/">
-                  Simuladores
-                </NavLink>
+                <li>
+                  <NavLink className="text-white" to="/">
+                    Preços e planos
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="text-white" to="/">
+                    Simuladores
+                  </NavLink>
+                </li>
               </ul>
             </div>
 
@@ -67,15 +72,21 @@ export function Footer() {
                 Privacidade & Termos
               </Heading>
               <ul className="flex flex-col items-start mt-3 gap-1">
-                <NavLink className="text-white" to="/">
-                  Termos de uso
-                </NavLink>
-                <NavLink className="text-white" to="/">
-                  Políticas de privacidade
-                </NavLink>
-                <NavLink className="text-white" to="/">
-                  Política de reembolso
-                </NavLink>
+                <li>
+                  <NavLink className="text-white" to="/">
+                    Termos de uso
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="text-white" to="/">
+                    Políticas de privacidade
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="text-white" to="/">
+                    Política de reembolso
+                  </NavLink>
+                </li>
               </ul>
             </div>
 

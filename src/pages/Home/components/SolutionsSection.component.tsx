@@ -104,6 +104,7 @@ export function SolutionsSection() {
               className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500 disabled:opacity-60"
               disabled={slideIndex === 0}
               onClick={handlePreviousButton}
+              aria-label="Ir para a solução anterior"
             >
               <CaretLeft size={20} />
             </button>
@@ -111,6 +112,7 @@ export function SolutionsSection() {
               className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-pink-500 disabled:opacity-60"
               disabled={slideIndex === maxSlideIndex}
               onClick={handleNextButton}
+              aria-label="Ir para a próxima solução"
             >
               <CaretRight size={20} />
             </button>

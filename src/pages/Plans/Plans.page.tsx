@@ -14,7 +14,7 @@ import { TestimonialsSection } from "../Home/components/TestimonialsSection.comp
 
 import { Plan } from "./types/Plan.types";
 
-import planLine from "../../assets/planLine.svg";
+import planLine from "/planLine.svg";
 import { FaqSection } from "./components/FaqSection.component";
 
 const PLANS: Plan[] = [
@@ -106,7 +106,7 @@ export function Plans() {
                 </PlanButton>
 
                 <div className="hidden md:flex absolute top-4 left-[calc(100%+1rem)] gap-2 w-max">
-                  <img src={planLine} />
+                  <img src={planLine} alt="" />
                   <p className="text-pink-500 font-semibold text-sm">
                     Economize 15%
                   </p>

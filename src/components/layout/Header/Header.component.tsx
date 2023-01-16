@@ -14,7 +14,7 @@ import { useState } from "react";
 
 import { classNames } from "../../../core/utils/classnames";
 
-import Logo from "../../../assets/logo.svg";
+import Logo from "/logo.svg";
 
 import { lockBodyScroll, unlockBodyScroll } from "../../../core/utils/lockBody";
 import { scrollToTop } from "../../../core/utils/scrollToTop";
